@@ -1,16 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define S(x) scanf("%d",&x)
-#define P(x) printf("%d",x)
-#define fl(i , a, b) for(i = a; i<b; i++)
-#define all(c) c.begin(), c.end()
-#define MOD 1000000007
-#define MAX 1000000010
-#define ll long long
-#define mp make_pair
-#define pb push_back
-typedef pair<int,int> pp;
-typedef pair<ll,ll> ppl;
 int f[2][2] = {{1,1},{1,0}};
 int tmp[2][2] = {{1,1} , {1,0}};
 void multiply(int f[2][2] , int f1[2][2])
