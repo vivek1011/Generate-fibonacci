@@ -1,0 +1,2 @@
+trick for fibonacci gcd
+__gcd(fib(a) , fib(b)) = fib(__gcd(a,b))
