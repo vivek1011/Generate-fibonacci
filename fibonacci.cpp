@@ -1,6 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
-int f[2][2] = {{1,1},{1,0}};
 int tmp[2][2] = {{1,1} , {1,0}};
 void multiply(int f[2][2] , int f1[2][2])
 {
@@ -11,25 +8,20 @@ void multiply(int f[2][2] , int f1[2][2])
 	f[0][0] = x; f[0][1] = y; f[1][0] = w; f[1][1] = z;
 	return ;
 }
-void power(int x)
+void power(int x , int f[2][2])
 {
 	if(x==0 || x==1)
 		return ;
-	power(x/2);
+	power(x/2 ,f);
 	multiply(f , f);
 	if(x%2!=0)
 		multiply( f , tmp);
-}
-int fib(int n)
-{
-	if(n==0) return 0;
-	power(n-1);
-	return f[0][0];
 }
 int main()
 {
 	int n ; 
 	cin>>n;
-	cout<<fib(n);
+	int f[2][2] = {{1,1},{1,0}};
+	power(n , f);
 	return 0;
 }
