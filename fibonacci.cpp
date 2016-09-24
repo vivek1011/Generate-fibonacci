@@ -46,5 +46,5 @@ int main()
 {
 	int n; 
 	cin >> n ;
-	cout < getfib(n) << endl;
+	cout << getfib(n) << endl;
 }
