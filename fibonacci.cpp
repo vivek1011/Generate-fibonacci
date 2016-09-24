@@ -1,27 +1,50 @@
-int tmp[2][2] = {{1,1} , {1,0}};
-void multiply(int f[2][2] , int f1[2][2])
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long 
+#define	fl(i,a,b) for(int i=a;i<(int)b;i++)
+#define MOD 1000000007
+ll tmp[2][2] = {{1,1},{1,0}};
+void multiply(ll f[2][2] , ll tmp[2][2])
 {
-	int x = f[0][0]*f1[0][0] + f[0][1]*f1[1][0];
-	int y = f[0][0]*f1[0][1] + f[0][1]*f1[1][1] ; 
-	int w = f[1][0]*f1[0][0] + f[1][1]*f1[1][0] ;
-	int z = f[1][0]*f1[0][1] + f[1][1]*f1[1][1];
-	f[0][0] = x; f[0][1] = y; f[1][0] = w; f[1][1] = z;
-	return ;
+	int i , j , k ; 
+	ll C[2][2] = {{0,0} , {0,0}}; 
+	fl(i,0,2){
+		fl(j,0,2){
+			fl(k, 0, 2){
+				C[i][j] = (C[i][j] + (f[i][k] * tmp[k][j]) % MOD) % MOD ; 
+			}
+		}	
+	}
+	fl(i,0,2){
+		fl(j,0,2) f[i][j] = C[i][j]; 
+	}
 }
-void power(int x , int f[2][2])
+
+void mat(ll x , ll f[2][2])
 {
-	if(x==0 || x==1)
-		return ;
-	power(x/2 ,f);
-	multiply(f , f);
+	if(x == 0 || x==1) return; 
+
+	mat(x/2 , f); 
+	multiply(f,f); 
+
 	if(x%2!=0)
-		multiply( f , tmp);
-}
+		multiply(f,tmp) ;
+}		
+
+ll getfib(ll n)
+{
+	if(n == 2 || n==1)
+		return 1; 
+
+	ll f[2][2] = {{1,1} , {1,0}};
+
+	mat(n-1 , f); 	
+
+	return f[0][0]; 
+}	
 int main()
 {
-	int n ; 
-	cin>>n;
-	int f[2][2] = {{1,1},{1,0}};
-	power(n , f);
-	return 0;
+	int n; 
+	cin >> n ;
+	cout < getfib(n) << endl;
 }
