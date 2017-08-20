@@ -4,6 +4,7 @@ using namespace std;
 #define	fl(i,a,b) for(int i=a;i<(int)b;i++)
 #define MOD 1000000007
 ll tmp[2][2] = {{1,1},{1,0}};
+// this is just useless comment. 
 void multiply(ll f[2][2] , ll tmp[2][2])
 {
 	int i , j , k ; 
